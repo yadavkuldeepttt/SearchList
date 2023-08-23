@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+      .container input{
+          width: 50vw;
+          padding: 0.8rem;
+          font-size: 17px;
+      }
+      ::placeholder{
+        font-size: 17px;
+      }
+      .container input:focus{
+        outline-color: cadetblue;
+      }
+      .list-group{
+        padding-left: 1rem;
+        list-style-type:disc;;
+      }   
+      
+        </style>
+  </head>
+  <body>
+    <!-- container -->
+    <div class="container">
+      <!-- Search box -->
+      <input type="text" name="search" placeholder="Search Animals...."
+        id="searchbar" onkeyup="search_animal()">
+      <!--search list  -->
+      <ul id="list" class="list-group">
+        <li class="animals list-group-item">Cat</li>
+        <li class="animals">Dog</li>
+        <li class="animals">Tiger</li>
+        <li class="animals">Horse</li>
+        <li class="animals">Lion</li>
+        <li class="animals">Buffalo</li>
+        <li class="animals">Elephent</li>
+        <li class="animals">Zebra</li>
+        <li class="animals">Donkey</li>
+        <li class="animals">Monkey</li>
+        <li class="animals">Whale</li>
+
+      </ul>
+    </div>
+    <!-- javasscript -->
+
+    <script>
+        // <!-- function for execute code -->
+    function search_animal(){
+      // get input using id 
+      let input = document.getElementById("searchbar").value;
+      // get input in lower case
+      input = input.toLowerCase();
+      //  now access list
+     let animals =document.getElementsByClassName("animals");
+
+     for(let i=0; i<animals.length; i++){
+      if(!animals[i].innerHTML.toLowerCase().includes(input)){
+        animals[i].style.display ="none";
+      }
+      else{
+        animals[i].style.display="list-item";
+      }
+     }
+    }
+        </script>
+  </body>
+</html>
